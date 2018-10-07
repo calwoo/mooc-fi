@@ -6,5 +6,9 @@ public class Circumference {
         Scanner reader = new Scanner(System.in);
 
         // Program your solution here 
+        System.out.println("Type the radius: ");
+        int radius = Integer.parseInt(reader.nextLine());
+        double circumference = Math.PI * 2 * radius;
+        System.out.println("Circumference of the circle: " + circumference);
     }
 }
