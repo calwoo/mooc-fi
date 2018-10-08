@@ -4,6 +4,13 @@ import java.util.Collections;
 
 public class CombiningArrayLists {
 
+    public static void combine(ArrayList<Integer> first, ArrayList<Integer> second) {
+        for (int i : second) {
+            first.add(i);
+        }
+        
+    }
+    
     public static void main(String[] args) {
 
         // You can change the values while testing

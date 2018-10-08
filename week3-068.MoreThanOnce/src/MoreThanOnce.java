@@ -5,6 +5,15 @@ public class MoreThanOnce {
 
     public static boolean moreThanOnce(ArrayList<Integer> list, int searched) {
         // write your code here
+        ArrayList<Integer> secondLook = new ArrayList<Integer>();
+        
+        for (int i : list) {
+            if (secondLook.contains(i) && i == searched) {
+                return true;
+            }
+            secondLook.add(i);
+        }
+        
         return false;
     }
 

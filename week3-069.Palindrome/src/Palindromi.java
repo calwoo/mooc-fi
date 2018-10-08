@@ -4,7 +4,19 @@ public class Palindromi {
 
     public static boolean palindrome(String text) {
         // write code here
-        return false;
+        String reversedText = reverse(text);
+        
+        return text.equals(reversedText);
+    }
+    
+    public static String reverse(String text) {
+        String reversed = "";
+        int count = text.length() - 1;
+        while (count >= 0) {
+            reversed += text.charAt(count);
+            count--;
+        }
+        return reversed;
     }
 
     public static void main(String[] args) {
