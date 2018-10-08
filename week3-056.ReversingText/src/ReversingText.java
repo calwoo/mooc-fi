@@ -6,7 +6,14 @@ public class ReversingText {
     public static String reverse(String text) {
         // write your code here
         // note that method does now print anything, it RETURNS the reversed string
-        return "";
+        String reversed = "";
+        int index = 0;
+        while (index < text.length()) {
+            reversed = text.charAt(index) + reversed;
+            index++;
+        }
+          
+        return reversed;
     }
 
     public static void main(String[] args) {
