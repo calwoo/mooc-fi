@@ -11,13 +11,33 @@ public class GuessingGame {
 
     public void play(int lowerLimit, int upperLimit) {
         instructions(lowerLimit, upperLimit);
-
+        int avg = average(lowerLimit, upperLimit);
         // write the guessing logic here
-
+        while (lowerLimit < upperLimit) {
+            avg = average(lowerLimit, upperLimit);
+            boolean response = isGreaterThan(avg);
+            if (response) {
+                lowerLimit = avg;
+            }
+            else {
+                upperLimit = avg;
+            }
+        }
+        System.out.println("The number you're thinking of is " + avg);
+        
     }
 
     // implement here the methods isGreaterThan and average
+    public boolean isGreaterThan(int value) {
+        System.out.println("Is your number greater than " + value + "? (y/n)");
+        String response = reader.nextLine();
+        return response.equals("y");
+    }
 
+    public int average(int firstNumber, int secondNumber) {
+        return (firstNumber + secondNumber) / 2;
+    }
+    
     public void instructions(int lowerLimit, int upperLimit) {
         int maxQuestions = howManyTimesHalvable(upperLimit - lowerLimit);
 
