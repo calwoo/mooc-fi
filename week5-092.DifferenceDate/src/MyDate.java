@@ -3,10 +3,38 @@ public class MyDate {
     private int month;
     private int year;
 
-    public MyDate(int day, int montd, int year) {
+    public MyDate(int day, int month, int year) {
         this.day = day;
-        this.month = montd;
+        this.month = month;
         this.year = year;
+    }
+    
+    public int differenceInYears(MyDate compareDate) {
+        int count = 1;
+        if (this.earlier(compareDate)) {
+            while (true) {
+                MyDate testDate = new MyDate(this.day, this.month, this.year + count);
+                if (compareDate.earlier(testDate)) {
+                    break;
+                }
+                else {
+                    count++;
+                }
+        }
+        }
+        else {
+           while (true) {
+               MyDate testDate = new MyDate(this.day, this.month, this.year - count);
+                if (testDate.earlier(compareDate)) {
+                    break;
+                }
+                else {
+                    count++;
+                }
+            } 
+        }
+        
+        return count - 1;
     }
 
     public String toString() {

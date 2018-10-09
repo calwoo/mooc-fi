@@ -14,7 +14,33 @@ public class MyDate {
     public String toString() {
         return this.day + "." + this.month + "." + this.year;
     }
+    
+    public void advance() {
+        if (this.day == 30) {
+            if (this.month == 12) {
+                this.year++;
+                this.month = 1;
+                this.day = 1;
+            }
+            else {
+                this.month++;
+                this.day = 1;
+            }    
+        }
+        else { this.day++; }
+    }
+    public void advance(int numberOfDays) {
+        for (int i = 0; i < numberOfDays; i++) {
+            advance();
+        }
+    }
 
+    public MyDate afterNumberOfDays(int days) {
+        MyDate newDate = new MyDate(this.day, this.month, this.year);
+        newDate.advance(days);
+        return newDate;
+    }
+    
     public boolean earlier(MyDate compared) {
         if (this.year < compared.year) {
             return true;
